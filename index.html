@@ -510,11 +510,11 @@
         </div>
 
     <script>
+        <script>
         // SEU ENDEREÇO DE EMAIL DE CONTATO É DEFINIDO AQUI:
-        const SEU_EMAIL_CONTATO = "tecladomagicokids@gmail.com"; // <-- SUBSTITUA ESTE EMAIL PELO SEU REAL!
+        const SEU_EMAIL_CONTATO = "tecladomagicokids@gmail.com"; 
 
         function validarEmail(email) {
-            // Regex simples para verificar o formato básico de um e-mail: algo@algo.algo
             var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
             return emailRegex.test(email);
         }
@@ -542,30 +542,21 @@
             }
 
             if (!validarEmail(email)) {
-                alert("⚠️ E-mail inválido. Por favor, digite um e-mail no formato correto (ex: nome@dominio.com).");
+                alert("⚠️ E-mail inválido. Por favor, digite um e-mail no formato correto.");
                 document.getElementById("emailCliente").focus();
                 return;
             }
             
-            // NUMERO DO WHATSAPP AQUI (5531996645814 - EX)
-            // Lembre-se de manter o código do país (55) e o código de área (DDD)
             var phoneNumber = "5531996645814";
-            
-            // Texto predefinido (incluindo o e-mail do cliente)
             var message = "Esse é o comprovante de pagamento e esse é meu e-mail de acesso: " + email;
-
-            // Link base do WhatsApp com texto codificado
             var finalLink = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + encodeURIComponent(message);
             
-            // Abre o WhatsApp
             window.open(finalLink, '_blank');
         }
 
-        // FUNÇÃO ATUALIZADA PARA ABRIR O GMAIL (WEBMAIL)
         function enviarComprovanteGmail() {
             var emailCliente = document.getElementById("emailCliente").value;
 
-            // Validações básicas
             if (emailCliente.trim() === "") {
                 alert("⚠️ ATENÇÃO: Por favor, digite seu e-mail para receber o acesso!");
                 document.getElementById("emailCliente").focus();
@@ -578,23 +569,29 @@
                 return;
             }
 
-            // Prepara os textos
             var subject = "COMPROVANTE DE PIX - ACESSO IMEDIATO";
             var body = "Olá,\n\nSegue em anexo o comprovante de pagamento via PIX. Por favor, libere meu acesso.\n\nMeu e-mail de cadastro é: " + emailCliente + "\n\nObrigado!";
 
-            // Verifica se é celular (Android, iPhone, etc.)
-            var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            // --- DETECÇÃO BLINDADA DE DISPOSITIVO ---
+            // 1. Verifica pelo sistema operacional (User Agent)
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            var isMobile = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase());
+
+            // 2. TRUQUE EXTRA: Se o navegador não avisou que é celular, 
+            // mas a tela for menor que 800px (tamanho de tablet/celular), 
+            // a gente FORÇA o modo celular.
+            if (window.innerWidth <= 800) {
+                isMobile = true;
+            }
 
             if (isMobile) {
-                // --- MODO CELULAR ---
-                // Usa o método antigo (mailto) que abre o APP direto
+                // --- MODO CELULAR (Abre o APP) ---
                 var mailtoUrl = "mailto:" + SEU_EMAIL_CONTATO + 
                                 "?subject=" + encodeURIComponent(subject) + 
                                 "&body=" + encodeURIComponent(body);
                 window.location.href = mailtoUrl;
             } else {
-                // --- MODO COMPUTADOR ---
-                // Usa o link do Gmail Web para evitar a tela branca
+                // --- MODO COMPUTADOR (Abre o Site do Gmail) ---
                 alert("Atenção: O Gmail abrirá em uma nova aba. Não esqueça de ANEXAR o comprovante!");
                 
                 var gmailUrl = "https://mail.google.com/mail/?view=cm&fs=1" +
@@ -604,6 +601,7 @@
                 window.open(gmailUrl, '_blank');
             }
         }
+    </script>
     </script>
 
 </body>
