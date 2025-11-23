@@ -510,10 +510,11 @@
         </div>
 
     <script>
-        // SEU ENDEREÇO DE EMAIL DE CONTATO
-        const SEU_EMAIL_CONTATO = "tecladomagicokids@gmail.com"; 
+        // SEU ENDEREÇO DE EMAIL DE CONTATO É DEFINIDO AQUI:
+        const SEU_EMAIL_CONTATO = "tecladomagicokids@gmail.com"; // <-- SUBSTITUA ESTE EMAIL PELO SEU REAL!
 
         function validarEmail(email) {
+            // Regex simples para verificar o formato básico de um e-mail: algo@algo.algo
             var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
             return emailRegex.test(email);
         }
@@ -541,22 +542,29 @@
             }
 
             if (!validarEmail(email)) {
-                alert("⚠️ E-mail inválido. Por favor, digite um e-mail no formato correto.");
+                alert("⚠️ E-mail inválido. Por favor, digite um e-mail no formato correto (ex: nome@dominio.com).");
                 document.getElementById("emailCliente").focus();
                 return;
             }
             
+            // NUMERO DO WHATSAPP AQUI (5531996645814 - EX)
+            // Lembre-se de manter o código do país (55) e o código de área (DDD)
             var phoneNumber = "5531996645814";
+            
+            // Texto predefinido (incluindo o e-mail do cliente)
             var message = "Esse é o comprovante de pagamento e esse é meu e-mail de acesso: " + email;
+
+            // Link base do WhatsApp com texto codificado
             var finalLink = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + encodeURIComponent(message);
             
+            // Abre o WhatsApp
             window.open(finalLink, '_blank');
         }
 
+        // FUNÇÃO ATUALIZADA PARA ABRIR O GMAIL (WEBMAIL)
         function enviarComprovanteGmail() {
             var emailCliente = document.getElementById("emailCliente").value;
 
-            // 1. Validação
             if (emailCliente.trim() === "") {
                 alert("⚠️ ATENÇÃO: Por favor, digite seu e-mail para receber o acesso!");
                 document.getElementById("emailCliente").focus();
@@ -564,37 +572,28 @@
             }
 
             if (!validarEmail(emailCliente)) {
-                alert("⚠️ E-mail inválido.");
+                alert("⚠️ E-mail inválido. Por favor, digite um e-mail no formato correto (ex: nome@dominio.com).");
                 document.getElementById("emailCliente").focus();
                 return;
             }
+            
+            // Alerta antes de tentar abrir o link
+            alert("Atenção: A tela do Gmail será aberta em uma nova aba. Não se esqueça de ANEXAR o comprovante antes de enviar!");
 
-            // 2. Prepara os dados
-            var subject = "COMPROVANTE DE PIX - ACESSO IMEDIATO";
-            var body = "Olá,\n\nSegue em anexo o comprovante de pagamento via PIX.\n\nMeu e-mail de cadastro é: " + emailCliente;
+            // Assunto e corpo do e-mail
+            var subject = encodeURIComponent("COMPROVANTE DE PIX - ACESSO IMEDIATO");
+            var body = encodeURIComponent("Olá,\n\nSegue em anexo o comprovante de pagamento via PIX. Por favor, libere meu acesso.\n\nMeu e-mail de cadastro é: " + emailCliente + "\n\nObrigado!");
 
-            // 3. Detecção Simplificada (Só verifica se é celular de verdade)
-            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-            var isMobile = /android|iphone|ipad|ipod/i.test(userAgent.toLowerCase());
+            // URL do Gmail com parâmetros preenchidos:
+            var mailtoUrl = "mailto:" + SEU_EMAIL_CONTATO + 
+                "?subject=" + subject + 
+                "&body=" + body;
 
-            if (isMobile) {
-                // --- CELULAR: Abre o App (Mailto) ---
-                // location.href funciona melhor que window.open para Apps
-                window.location.href = "mailto:" + SEU_EMAIL_CONTATO + 
-                                     "?subject=" + encodeURIComponent(subject) + 
-                                     "&body=" + encodeURIComponent(body);
-            } else {
-                // --- PC: Abre o Gmail Web (IMEDIATAMENTE para não ser bloqueado) ---
-                var gmailUrl = "https://mail.google.com/mail/?view=cm&fs=1" +
-                                "&to=" + encodeURIComponent(SEU_EMAIL_CONTATO) + 
-                                "&su=" + encodeURIComponent(subject) + 
-                                "&body=" + encodeURIComponent(body);
-                
-                // Sem alert aqui! O clique abre a aba direto.
-                window.open(gmailUrl, '_blank');
-            }
+
+            // Abre o Gmail em uma nova aba.
+            window.open(mailtoUrl, '_blank');
         }
     </script>
- 
+
 </body>
 </html>
