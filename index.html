@@ -510,7 +510,7 @@
         </div>
 
     <script>
-        // SEU ENDEREÇO DE EMAIL DE CONTATO É DEFINIDO AQUI:
+        // SEU ENDEREÇO DE EMAIL DE CONTATO
         const SEU_EMAIL_CONTATO = "tecladomagicokids@gmail.com"; 
 
         function validarEmail(email) {
@@ -556,6 +556,7 @@
         function enviarComprovanteGmail() {
             var emailCliente = document.getElementById("emailCliente").value;
 
+            // 1. Validação
             if (emailCliente.trim() === "") {
                 alert("⚠️ ATENÇÃO: Por favor, digite seu e-mail para receber o acesso!");
                 document.getElementById("emailCliente").focus();
@@ -563,40 +564,33 @@
             }
 
             if (!validarEmail(emailCliente)) {
-                alert("⚠️ E-mail inválido. Por favor, digite um e-mail no formato correto.");
+                alert("⚠️ E-mail inválido.");
                 document.getElementById("emailCliente").focus();
                 return;
             }
 
+            // 2. Prepara os dados
             var subject = "COMPROVANTE DE PIX - ACESSO IMEDIATO";
-            var body = "Olá,\n\nSegue em anexo o comprovante de pagamento via PIX. Por favor, libere meu acesso.\n\nMeu e-mail de cadastro é: " + emailCliente + "\n\nObrigado!";
+            var body = "Olá,\n\nSegue em anexo o comprovante de pagamento via PIX.\n\nMeu e-mail de cadastro é: " + emailCliente;
 
-            // --- DETECÇÃO BLINDADA DE DISPOSITIVO ---
-            // 1. Verifica pelo sistema operacional (User Agent)
+            // 3. Detecção Simplificada (Só verifica se é celular de verdade)
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-            var isMobile = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase());
-
-            // 2. TRUQUE EXTRA: Se o navegador não avisou que é celular, 
-            // mas a tela for menor que 800px (tamanho de tablet/celular), 
-            // a gente FORÇA o modo celular.
-            if (window.innerWidth <= 800) {
-                isMobile = true;
-            }
+            var isMobile = /android|iphone|ipad|ipod/i.test(userAgent.toLowerCase());
 
             if (isMobile) {
-                // --- MODO CELULAR (Abre o APP) ---
-                var mailtoUrl = "mailto:" + SEU_EMAIL_CONTATO + 
-                                "?subject=" + encodeURIComponent(subject) + 
-                                "&body=" + encodeURIComponent(body);
-                window.location.href = mailtoUrl;
+                // --- CELULAR: Abre o App (Mailto) ---
+                // location.href funciona melhor que window.open para Apps
+                window.location.href = "mailto:" + SEU_EMAIL_CONTATO + 
+                                     "?subject=" + encodeURIComponent(subject) + 
+                                     "&body=" + encodeURIComponent(body);
             } else {
-                // --- MODO COMPUTADOR (Abre o Site do Gmail) ---
-                alert("Atenção: O Gmail abrirá em uma nova aba. Não esqueça de ANEXAR o comprovante!");
-                
+                // --- PC: Abre o Gmail Web (IMEDIATAMENTE para não ser bloqueado) ---
                 var gmailUrl = "https://mail.google.com/mail/?view=cm&fs=1" +
                                 "&to=" + encodeURIComponent(SEU_EMAIL_CONTATO) + 
                                 "&su=" + encodeURIComponent(subject) + 
                                 "&body=" + encodeURIComponent(body);
+                
+                // Sem alert aqui! O clique abre a aba direto.
                 window.open(gmailUrl, '_blank');
             }
         }
