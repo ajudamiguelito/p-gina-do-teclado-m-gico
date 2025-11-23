@@ -565,6 +565,7 @@
         function enviarComprovanteGmail() {
             var emailCliente = document.getElementById("emailCliente").value;
 
+            // Validações básicas
             if (emailCliente.trim() === "") {
                 alert("⚠️ ATENÇÃO: Por favor, digite seu e-mail para receber o acesso!");
                 document.getElementById("emailCliente").focus();
@@ -572,26 +573,36 @@
             }
 
             if (!validarEmail(emailCliente)) {
-                alert("⚠️ E-mail inválido. Por favor, digite um e-mail no formato correto (ex: nome@dominio.com).");
+                alert("⚠️ E-mail inválido. Por favor, digite um e-mail no formato correto.");
                 document.getElementById("emailCliente").focus();
                 return;
             }
-            
-            // Alerta antes de tentar abrir o link
-            alert("Atenção: A tela do Gmail será aberta em uma nova aba. Não se esqueça de ANEXAR o comprovante antes de enviar!");
 
-            // Assunto e corpo do e-mail
-            var subject = encodeURIComponent("COMPROVANTE DE PIX - ACESSO IMEDIATO");
-            var body = encodeURIComponent("Olá,\n\nSegue em anexo o comprovante de pagamento via PIX. Por favor, libere meu acesso.\n\nMeu e-mail de cadastro é: " + emailCliente + "\n\nObrigado!");
+            // Prepara os textos
+            var subject = "COMPROVANTE DE PIX - ACESSO IMEDIATO";
+            var body = "Olá,\n\nSegue em anexo o comprovante de pagamento via PIX. Por favor, libere meu acesso.\n\nMeu e-mail de cadastro é: " + emailCliente + "\n\nObrigado!";
 
-            // URL do Gmail com parâmetros preenchidos:
-            var mailtoUrl = "mailto:" + SEU_EMAIL_CONTATO + 
-                "?subject=" + subject + 
-                "&body=" + body;
+            // Verifica se é celular (Android, iPhone, etc.)
+            var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-
-            // Abre o Gmail em uma nova aba.
-            window.open(mailtoUrl, '_blank');
+            if (isMobile) {
+                // --- MODO CELULAR ---
+                // Usa o método antigo (mailto) que abre o APP direto
+                var mailtoUrl = "mailto:" + SEU_EMAIL_CONTATO + 
+                                "?subject=" + encodeURIComponent(subject) + 
+                                "&body=" + encodeURIComponent(body);
+                window.location.href = mailtoUrl;
+            } else {
+                // --- MODO COMPUTADOR ---
+                // Usa o link do Gmail Web para evitar a tela branca
+                alert("Atenção: O Gmail abrirá em uma nova aba. Não esqueça de ANEXAR o comprovante!");
+                
+                var gmailUrl = "https://mail.google.com/mail/?view=cm&fs=1" +
+                                "&to=" + encodeURIComponent(SEU_EMAIL_CONTATO) + 
+                                "&su=" + encodeURIComponent(subject) + 
+                                "&body=" + encodeURIComponent(body);
+                window.open(gmailUrl, '_blank');
+            }
         }
     </script>
 
