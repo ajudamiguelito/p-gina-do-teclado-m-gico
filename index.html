@@ -563,36 +563,50 @@
 
         // FUNÇÃO ATUALIZADA PARA ABRIR O GMAIL (WEBMAIL)
         function enviarComprovanteGmail() {
-            var emailCliente = document.getElementById("emailCliente").value;
+    var emailCliente = document.getElementById("emailCliente").value;
 
-            if (emailCliente.trim() === "") {
-                alert("⚠️ ATENÇÃO: Por favor, digite seu e-mail para receber o acesso!");
-                document.getElementById("emailCliente").focus();
-                return;
-            }
+    if (emailCliente.trim() === "") {
+        alert("⚠️ ATENÇÃO: Por favor, digite seu e-mail para receber o acesso!");
+        document.getElementById("emailCliente").focus();
+        return;
+    }
 
-            if (!validarEmail(emailCliente)) {
-                alert("⚠️ E-mail inválido. Por favor, digite um e-mail no formato correto (ex: nome@dominio.com).");
-                document.getElementById("emailCliente").focus();
-                return;
-            }
-            
-            // Alerta antes de tentar abrir o link
-            alert("Atenção: A tela do Gmail será aberta em uma nova aba. Não se esqueça de ANEXAR o comprovante antes de enviar!");
+    if (!validarEmail(emailCliente)) {
+        alert("⚠️ E-mail inválido. Por favor, digite um e-mail no formato correto (ex: nome@dominio.com).");
+        document.getElementById("emailCliente").focus();
+        return;
+    }
 
-            // Assunto e corpo do e-mail
-            var subject = encodeURIComponent("COMPROVANTE DE PIX - ACESSO IMEDIATO");
-            var body = encodeURIComponent("Olá,\n\nSegue em anexo o comprovante de pagamento via PIX. Por favor, libere meu acesso.\n\nMeu e-mail de cadastro é: " + emailCliente + "\n\nObrigado!");
+    // Detectar se está no celular
+    var isMobile = /Android|iPhone|iPad|iPod|webOS|BlackBerry|Windows Phone/i.test(navigator.userAgent);
 
-            // URL do Gmail com parâmetros preenchidos:
-            var mailtoUrl = "mailto:" + SEU_EMAIL_CONTATO + 
-                "?subject=" + subject + 
-                "&body=" + body;
+    var subject = encodeURIComponent("COMPROVANTE DE PIX - ACESSO IMEDIATO");
+    var body = encodeURIComponent(
+        "Olá,\n\nSegue em anexo o comprovante de pagamento via PIX.\n\n" +
+        "Meu e-mail de cadastro é: " + emailCliente + "\n\nObrigado!"
+    );
 
+    if (isMobile) {
+        // 📱 CELULAR → usar mailto (abre app do Gmail/Email)
+        var mailtoUrl = "mailto:" + SEU_EMAIL_CONTATO +
+            "?subject=" + subject +
+            "&body=" + body;
 
-            // Abre o Gmail em uma nova aba.
-            window.open(mailtoUrl, '_blank');
-        }
+        window.location.href = mailtoUrl;
+    } else {
+        // 💻 PC → abrir Gmail Web Compose (método 100% estável)
+        alert("Atenção: A tela do Gmail será aberta em uma nova aba. Não se esqueça de ANEXAR o comprovante antes de enviar!");
+
+        var gmailUrl =
+            "https://mail.google.com/mail/?view=cm&fs=1" +
+            "&to=" + SEU_EMAIL_CONTATO +
+            "&su=" + subject +
+            "&body=" + body;
+
+        window.open(gmailUrl, "_blank");
+    }
+}
+
     </script>
 
 </body>
