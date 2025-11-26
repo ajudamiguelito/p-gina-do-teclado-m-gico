@@ -378,94 +378,96 @@
         }
 
     @media (max-width: 650px) {
-    
-    /* 💥 AJUSTES GERAIS DE ESTRUTURA E MARGENS 💥 */
-    
-    /* Força a remoção de padding do corpo e contêiner principal para maximizar o espaço */
-    body {
-        padding: 0 !important;
-    }
-    
-    .container-principal {
-        padding: 0 !important; 
-        margin: 0 auto !important;
-    }
-    
-    /* CORREÇÃO H1 (Largura e Fonte) */
-    h1 {
-        max-width: calc(100% - 40px);
-        font-size: 1.5em; 
-        padding: 15px; 
-    }
-    
-    /* CORREÇÃO VÍDEOS (Empilhar e Centralizar) */
+    
+    /* 💥 AJUSTES GERAIS DE ESTRUTURA E MARGENS 💥 */
+    
+    body {
+        padding: 0 !important;
+    }
+    
+    .container-principal {
+        padding: 0 !important; 
+        margin: 0 auto !important;
+    }
+    
+    /* CORREÇÃO H1 (Largura e Fonte) */
+    h1 {
+        max-width: calc(100% - 40px);
+        font-size: 1.5em; 
+        padding: 15px; 
+    }
+    
+    /* CORREÇÃO VÍDEOS (Empilhar e Centralizar) */
 	.video-grid {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        padding: 0;
-    }
-    
-    /* GERAL (Empilhar Mídia/Vantagens) */
-    .conteudo-lado-a-lado {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    /* Contêiner de Compra: Força modo Bloco para anular Flexbox de alta prioridade */
-    .area-compra-flex {
-        display: block !important; 
-        width: 100%; 
-        max-width: 300px; 
-        margin: 10px auto; /* Centraliza o bloco principal de compra */
-    }
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 0;
+    }
+    
+    /* GERAL (Empilhar Mídia/Vantagens) */
+    .conteudo-lado-a-lado {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    /* 🎯 MODIFICAÇÃO PRINCIPAL: FORÇA O EMPILHAMENTO VERTICAL */
+    .area-compra-flex {
+        **flex-direction: column;** /* 👈 Força Hotmart/Seta em cima e Botão embaixo */
+        display: flex !important; /* Mantém o Flexbox */
+        width: 100%; 
+        max-width: 300px; 
+        margin: 10px auto; 
+        gap: 10px; /* Reduz o espaçamento entre os elementos */
+    }
 
-    /* CORREÇÃO DA HOTMART E BOTÃO AZUL: FORÇA BLOCK, REDUÇÃO E CENTRALIZAÇÃO */
+    /* Bloco Hotmart/Seta: Fica em cima */
+    .lado-seguranca { 
+        display: flex; /* Mantém a Seta e a Hotmart juntas */
+        flex-direction: column; /* Mantém a Hotmart em cima da Seta */
+        align-items: center;
+        width: 100%; 
+        max-width: 180px;
+        margin: 0 auto; 
+    }
+    
+    /* Logo Hotmart (Tamanho e Centralização) */
+    .hotmart-logo-img {
+        height: 25px; 
+        margin: 0 auto 5px auto; 
+        display: block; 
+    }
+    
+    /* Seta: Rotaciona 90 graus para apontar para baixo */
+    .seta-animada {
+        **transform: rotate(90deg);** /* 👈 Rotaciona para apontar para o botão abaixo */
+        animation: bounceDown 1.5s infinite; /* Usa a nova animação de queda */
+    }
 
-    /* Bloco Hotmart/Seta */
-    .lado-seguranca { 
-        display: block !important; /* FORÇA A QUEBRA DE LINHA */
-        width: 100%; 
-        max-width: 180px; /* Limite de largura reduzido */
-        margin: 0 auto 10px auto; /* Centraliza o bloco e adiciona margem */
-    }
-    
-    /* Logo Hotmart (Tamanho e Centralização) */
-    .hotmart-logo-img {
-        height: 25px; 
-        width: auto;
-        margin: 0 auto; /* Centraliza a logo */
-        display: block; 
-    }
-    
-    /* Botão Azul */
-    .botao-azul {
-        display: block !important; /* FORÇA O BOTÃO A QUEBRAR LINHA */
-        width: 100%;
-        max-width: 180px !important; /* FORÇA O LIMITE MÁXIMO DE LARGURA */
-        font-size: 14px; /* Texto menor */
-        padding: 8px 15px; /* Botão mais fino */
-        margin: 0 auto; /* Centraliza o botão */
-    }
-    
-    /* FIM DA CORREÇÃO DA HOTMART E BOTÃO AZUL */
+    /* Botão Azul: Fica embaixo */
+    .botao-azul {
+        display: block !important; 
+        width: 100%;
+        max-width: 180px !important; 
+        font-size: 14px; 
+        padding: 8px 15px; 
+        margin: 0 auto; 
+    }
+    
+    /* FIM DA CORREÇÃO DA HOTMART E BOTÃO AZUL */
 
-    /* GERAL (Restante dos estilos) */
-    .media-item img, .texto-destaque {
-        width: 100%;
-        max-width: 250px;
-    }
-    
-    .seta-animada {
-        transform: rotate(90deg);
-        animation: bounceDown 1.5s infinite;
-    }
-    
-    @keyframes bounceDown {
-        0%, 100% { transform: rotate(90deg) translateX(0); }
-        50% { transform: rotate(90deg) translateX(10px); }
-    }
+    /* GERAL (Restante dos estilos) */
+    .media-item img, .texto-destaque {
+        width: 100%;
+        max-width: 250px;
+    }
+    
+    /* Nova Animação para a seta que aponta para baixo */
+    **@keyframes bounceDown {**
+        **0%, 100% { transform: rotate(90deg) translateX(0); }**
+        **50% { transform: rotate(90deg) translateX(10px); }** /* O X é na direção da seta rotacionada */
+    **}**
 }
 
     </style>
@@ -686,4 +688,5 @@
 
 </body>
 </html>
+
 
