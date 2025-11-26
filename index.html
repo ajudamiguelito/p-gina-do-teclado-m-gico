@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -18,366 +19,384 @@
     box-sizing: border-box;
 }
 
-	        /* --- ESTILOS PROMOÇÃO --- */
-        .promo-banner {
-            background-color: #ffeb3b; /* Amarelo chamativo */
-            border: 3px solid #fbc02d;
-            padding: 15px;
-            margin: 20px auto;
-            border-radius: 10px;
-            max-width: 740px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
-            animation: pulse 2s infinite;
-			width: 730px;      /* 360 + 360 + 25px de espaço */
-			max-width: 100%;
-        }
-        .promo-banner h2 {
-            color: #d32f2f; /* Vermelho forte */
-            margin-top: 0;
-            margin-bottom: 10px;
-            font-size: 1.8em;
-            text-transform: uppercase;
-        }
-        .ofertas-flex {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-        .oferta-item {
-            background-color: #ffffff;
-            padding: 10px 20px;
-            border-radius: 8px;
-            border: 2px solid #fbc02d;
-            font-weight: bold;
-            font-size: 1.1em;
-            color: #333;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .oferta-item strong {
-            color: #007bff;
-            font-size: 1.5em;
-            display: block;
-            line-height: 1.2;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-            100% { transform: scale(1); }
-        }
+/* --- ESTILOS PROMOÇÃO --- */
+.promo-banner {
+    background-color: #ffeb3b;
+    border: 3px solid #fbc02d;
+    padding: 15px;
+    margin: 20px auto;
+    border-radius: 10px;
+    width: 100%;           /* CORRIGIDO */
+    max-width: 740px;      /* limite no desktop */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+    animation: pulse 2s infinite;
+}
+.promo-banner h2 {
+    color: #d32f2f;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.8em;
+    text-transform: uppercase;
+}
 
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f9f9f9;
-        }
-        .container-principal {
-            max-width: 800px; 
-            margin: 20px auto; 
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-       h1 {
+.ofertas-flex {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.oferta-item {
+    background-color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 2px solid #fbc02d;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #333;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.oferta-item strong {
+    color: #007bff;
+    font-size: 1.5em;
+    display: block;
+    line-height: 1.2;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.container-principal {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* --- H1 CORRIGIDO E RESPONSIVO --- */
+h1 {
     margin-bottom: 35px;
     color: #333;
     display: block;
-    width: 100%; /* Permitir que ocupe toda a largura */
-    max-width: 740px; /* Limitar em telas grandes */
+    width: 100%;
+    max-width: 740px;
     border: 3px solid #BFE0FF;
     padding: 45px;
     border-radius: 10px;
     background-color: #BFE0FF;
-    margin: 20px auto; /* Mantém centralizado em qualquer largura */
+    margin: 20px auto;
     font-size: 40px;
     font-weight: bold;
     box-shadow: 0 4px 6px rgba(0,0,0,0.15);
     animation: pulse 10s infinite;
 }
 
-        /* --- ESTILOS VÍDEO --- */
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-            padding: 0 10px;
-            margin-top: 30px; 
-        }
+/* --- ESTILOS VÍDEO --- */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+    padding: 0 10px;
+    margin-top: 30px;
+}
 
-       .video-block {
+.video-block {
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 10px;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     background-color: #BFE0FF;
-    /* width: 360px; <--- REMOVA OU COMENTE ESTA LINHA */
-    /* height: 100px; <--- REMOVA OU COMENTE ESTA LINHA */
-    width: 100%; /* Ocupa a largura total disponível pelo pai */
-    max-width: 740px; /* Mesma largura máxima do banner amarelo */
-    margin: 01px auto; /* Centraliza e adiciona margem vertical, como o banner amarelo */
-    box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura */
+    width: 100%;        /* CORRIGIDO */
+    max-width: 740px;
+    margin: 1px auto;
+    box-sizing: border-box;
 }
 
-        .video-block h3 {
-            color: #007bff;
-            font-size: 1.1em;
-            margin-top: 0;
-            margin-bottom: 5px;
-        }
+.video-block h3 {
+    color: #007bff;
+    font-size: 1.1em;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
 
-        .btn-youtube {
-            display: inline-flex; 
-            align-items: center; 
-            justify-content: center; 
-            padding: 10px 15px;
-            background-color: #ff0000; 
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        
-        .youtube-icon {
-            width: 1.2em; 
-            height: 1.2em;
-            margin-right: 8px; 
-            fill: #ffffff; 
-        }
+/* --- BOTÃO YOUTUBE --- */
+.btn-youtube {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    background-color: #ff0000;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
 
-        .btn-youtube:hover {
-            background-color: #cc0000;
-			 box-shadow: 0 0 0 3px #007bff;
-        }
+.youtube-icon {
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: 8px;
+    fill: #ffffff;
+}
 
-        /* --- ESTILOS DESTAQUES --- */
-        .conteudo-lado-a-lado {
-            display: flex;
-            justify-content: center;
-            align-items: stretch;
-            gap: 25px;
-            margin-bottom: 30px; 
-            flex-wrap: wrap;
-        }
-        .media-item {
-            border-radius: 8px;
-            border: 1px solid #ddd;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-			background-color: #BFE0FF; /* Cor azul do botão */
-			width: 360px; /* Largura total desejada */
-			padding: 1px; /* Padding para igualar ao .video-block */
+.btn-youtube:hover {
+    background-color: #cc0000;
+    box-shadow: 0 0 0 3px #007bff;
+}
 
-        }
-        .media-item img {
-			display: block;
-			width: 100%; /* Garante que a imagem ocupe 100% da largura do contêiner */
-			max-width: 300px; /* Limita a largura máxima no desktop para 300px */
-			height: auto;
-			object-fit: contain;
-		}
-			.texto-destaque {
-			background-color: #BFE0FF;
-			color: #333;
-			padding: 20px;
-			border-radius: 8px;
-			border: 1px solid #cceeff;
-			text-align: left;
-			width: 360px;   /* 👈 nova largura */
-			min-height: 356px;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-		}
+/* --- ESTILOS DESTAQUES (IMAGEM + TEXTO) --- */
+.conteudo-lado-a-lado {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 25px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
 
-        .texto-destaque h2 {
-            margin-top: 0;
-            color: #007bff;
-            font-size: 1.2em;
-        }
-        .texto-destaque ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .texto-destaque li {
-            margin-bottom: 10px;
-            padding-left: 20px;
-            position: relative;
-            font-size: 0.95em;
-        }
-        .texto-destaque li::before {
-            content: '✅';
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-        
-        /* --- ÁREA DE COMPRA --- */
-        .area-compra-flex {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-        }
+.media-item {
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #BFE0FF;
+    width: 100%;          /* CORRIGIDO */
+    max-width: 360px;     /* limite desktop */
+    padding: 1px;
+}
 
-        .lado-seguranca {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
+.media-item img {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    object-fit: contain;
+}
 
-        .hotmart-logo-img {
-            height: 45px;
-            width: auto;
-            margin-bottom: 5px;
-        }
+.texto-destaque {
+    background-color: #BFE0FF;
+    color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #cceeff;
+    text-align: left;
+    width: 100%;           /* CORRIGIDO */
+    max-width: 360px;
+    min-height: auto;       /* estava fixo */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
-        .seta-animada {
-            width: 40px;
-            height: 40px;
-            fill: #27AE60;
-            animation: bounceRight 1.5s infinite;
-        }
+.texto-destaque h2 {
+    margin-top: 0;
+    color: #007bff;
+    font-size: 1.2em;
+}
 
-        .botao-azul {
-            display: inline-block;
-            padding: 18px 40px;
-            font-size: 24px;
-            font-weight: bold;
-            text-decoration: none;
-            cursor: pointer;
-            text-align: center;
-            color: #ffffff; 
-            background-color: #007bff; 
-            border: none;
-            border-radius: 10px; 
-            box-shadow: 0 4px 0 0 #0056b3; 
-            transition: background-color 0.1s, transform 0.1s, box-shadow 0.1s;
-			width: 340px; /* coloque o tamanho que quiser (300, 350, 400...) */
-        }
-        
-        .botao-azul:hover {
-            background-color: #0056b3; 
-            box-shadow: 0 2px 0 0 #004085;
-            transform: translateY(2px); 
-        }
+.texto-destaque ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
-        .garantia-texto {
-            font-size: 0.9em;
-            color: #555;
-            margin-top: 15px;
-            font-weight: bold;
-        }
+.texto-destaque li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+    font-size: 0.95em;
+}
 
-        /* --- ÁREA PIX / PAGAMENTO ALTERNATIVO --- */
-        .pix-section {
-            margin-top: 40px;
-            padding: 20px;
-            border-top: 2px dashed #ddd;
-            background-color: #fcfcfc;
-            border-radius: 0 0 10px 10px;
-        }
+.texto-destaque li::before {
+    content: '✅';
+    position: absolute;
+    left: 0;
+    top: 0;
+}
 
-        .pix-section h3 {
-            color: #27AE60;
-            margin-bottom: 15px;
-        }
+/* --- ÁREA DE COMPRA --- */
+.area-compra-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
 
-        .pix-instructions {
-            text-align: left;
-            max-width: 500px;
-            margin: 0 auto 20px auto;
-            color: #555;
-            font-size: 0.95em;
-        }
+.lado-seguranca {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
-        .input-box {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
+.hotmart-logo-img {
+    height: 45px;
+    width: auto;
+    margin-bottom: 5px;
+}
 
-        .campo-input {
-            width: 100%;
-            max-width: 400px;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-            text-align: center;
-        }
+.seta-animada {
+    width: 40px;
+    height: 40px;
+    fill: #27AE60;
+    animation: bounceRight 1.5s infinite;
+}
 
-        .btn-copiar {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-        .btn-copiar:hover { 
-            background-color: #45a049; 
-        }
+/* --- BOTÃO DE COMPRA --- */
+.botao-azul {
+    display: inline-block;
+    padding: 18px 40px;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    color: #ffffff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 0 0 #0056b3;
+    transition: background-color 0.1s, transform 0.1s, box-shadow 0.1s;
+    width: 100%;         /* CORRIGIDO */
+    max-width: 340px;    /* valor original mantido */
+}
 
-        .btn-whatsapp-env {
-            background-color: #25D366;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 50px; 
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.2s;
-            width: 100%;
-            max-width: 300px;
-        }
+.botao-azul:hover {
+    background-color: #0056b3;
+    box-shadow: 0 2px 0 0 #004085;
+    transform: translateY(2px);
+}
 
-        .btn-email-env {
-            background-color: #D44638; /* Vermelho/Laranja do Gmail/Email */
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 50px; 
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.2s;
-            width: 100%;
-            max-width: 300px;
-            margin-top: 10px; /* Separar do botão do WhatsApp */
-        }
-        
-        .btn-whatsapp-env:hover, .btn-email-env:hover {
-            transform: scale(1.05);
-        }
-        .btn-whatsapp-env:hover { background-color: #128C7E; }
-        .btn-email-env:hover { background-color: #b3392f; }
+.garantia-texto {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 15px;
+    font-weight: bold;
+}
 
-        @keyframes bounceRight {
-            0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(10px); }
-        }
+/* --- ÁREA PIX --- */
+.pix-section {
+    margin-top: 40px;
+    padding: 20px;
+    border-top: 2px dashed #ddd;
+    background-color: #fcfcfc;
+    border-radius: 0 0 10px 10px;
+}
+
+.pix-section h3 {
+    color: #27AE60;
+    margin-bottom: 15px;
+}
+
+.pix-instructions {
+    text-align: left;
+    max-width: 500px;
+    margin: 0 auto 20px auto;
+    color: #555;
+    font-size: 0.95em;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.campo-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.btn-copiar {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-copiar:hover {
+    background-color: #45a049;
+}
+
+.btn-whatsapp-env {
+    background-color: #25D366;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+    width: 100%;
+    max-width: 300px;
+}
+
+.btn-email-env {
+    background-color: #D44638;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+    width: 100%;
+    max-width: 300px;
+    margin-top: 10px;
+}
+
+.btn-whatsapp-env:hover,
+.btn-email-env:hover {
+    transform: scale(1.05);
+}
+
+.btn-whatsapp-env:hover { background-color: #128C7E; }
+.btn-email-env:hover { background-color: #b3392f; }
+
+@keyframes bounceRight {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(10px); }
+}
+
 
     @media (max-width: 650px) {
     
@@ -394,20 +413,19 @@
     }
     
     /* CORREÇÃO H1 (Largura e Fonte) */
-    h1 {
-        max-width: calc(100% - 40px);
-        font-size: 1.5em; 
-        padding: 15px; 
-    }
+    h1 border: 3px solid #007bff;   /* 🔵 Borda azul */
+    border-radius: 10px;          /* 🔥 Deixa mais bonito */
     
-    /* CORREÇÃO VÍDEOS (Empilhar e Centralizar) */
-	.video-grid {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        padding: 0;
-    }
+   .video-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 0;
+
+    max-width: calc(100% - 40px);
+    margin: 0 auto;   /* 🔥 Centraliza de verdade */
+}
     
     /* GERAL (Empilhar Mídia/Vantagens) */
     .conteudo-lado-a-lado {
@@ -426,44 +444,52 @@
     /* CORREÇÃO DA HOTMART E BOTÃO AZUL: FORÇA BLOCK, REDUÇÃO E CENTRALIZAÇÃO */
 
     /* Bloco Hotmart/Seta */
-    .lado-seguranca { 
-        display: block !important; /* FORÇA A QUEBRA DE LINHA */
-        width: 100%; 
-        max-width: 180px; /* Limite de largura reduzido */
-        margin: 0 auto 10px auto; /* Centraliza o bloco e adiciona margem */
-    }
+    .lado-seguranca {
+    width: 100%;
+    max-width: 100% !important;   /* 🔥 Agora ocupa a largura total */
+    margin: 0 auto;
+    text-align: center !important; /* 🔥 Garante centralização */
+}
     
     /* Logo Hotmart (Tamanho e Centralização) */
     .hotmart-logo-img {
-        height: 25px; 
-        width: auto;
-        margin: 0 auto; /* Centraliza a logo */
-        display: block; 
-    }
+    height: 70px !important;       /* Pode aumentar sem medo */
+    width: auto;
+    display: inline-block;         /* 🔥 Melhor para centralização */
+    margin: 0 auto;
+}
+
     
     /* Botão Azul */
     .botao-azul {
-        display: block !important; /* FORÇA O BOTÃO A QUEBRAR LINHA */
-        width: 100%;
-        max-width: 180px !important; /* FORÇA O LIMITE MÁXIMO DE LARGURA */
-        font-size: 14px; /* Texto menor */
-        padding: 8px 15px; /* Botão mais fino */
-        margin: 0 auto; /* Centraliza o botão */
-    }
+    display: block !important;
+    width: 100%;
+    max-width: 260px !important;   /* 🔥 Aumentei aqui (pode pôr até 300px) */
+    font-size: 16px;               /* 🔥 Aumentei o texto */
+    padding: 14px 20px;            /* 🔥 Botão mais alto e mais encorpado */
+    margin: 15px auto;             /* Centralizado e com espaçamento */
+    text-align: center;            /* Garante centralização do texto */
+}
     
     /* FIM DA CORREÇÃO DA HOTMART E BOTÃO AZUL */
 
     /* GERAL (Restante dos estilos) */
     .media-item img, .texto-destaque {
         width: 100%;
-        max-width: 250px;
+        max-width: calc(100% - 40px);
     }
     
     .seta-animada {
         transform: rotate(90deg);
         animation: bounceDown 1.5s infinite;
     }
-    
+	
+    .promo-banner {
+    max-width: calc(100% - 40px);
+}
+.media-item {
+    max-width: calc(100% - 40px);
+}
     @keyframes bounceDown {
         0%, 100% { transform: rotate(90deg) translateX(0); }
         50% { transform: rotate(90deg) translateX(10px); }
@@ -689,3 +715,4 @@
 
 </body>
 </html>
+
