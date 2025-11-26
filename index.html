@@ -154,27 +154,23 @@
         }
 
         /* --- ESTILOS DESTAQUES --- */
-	        @media (max-width: 799px) {
-	            .media-item, .texto-destaque {
-	                width: 100%;
-	                max-width: 380px;
-	            }
-	        }
-	       .conteudo-lado-a-lado {
-	            display: flex;
-	            justify-content: center;
-	            align-items: stretch;
-	            gap: 20px;
-	            margin-bottom: 30px; 
-	            flex-wrap: wrap;
-	        }
-	        .media-item {
+        .conteudo-lado-a-lado {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 25px;
+            margin-bottom: 30px; 
+            flex-wrap: wrap;
+        }
+        .media-item {
+            border-radius: 8px;
+            border: 1px solid #ddd;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
 			background-color: #BFE0FF; /* Cor azul do botão */
-			width: 380px; /* Largura total desejada */
+			width: 360px; /* Largura total desejada */
 			padding: 1px; /* Padding para igualar ao .video-block */
 
         }
@@ -192,7 +188,7 @@
 			border-radius: 8px;
 			border: 1px solid #cceeff;
 			text-align: left;
-			width: 380px;   /* 👈 nova largura */
+			width: 360px;   /* 👈 nova largura */
 			min-height: 356px;
 			display: flex;
 			flex-direction: column;
@@ -377,11 +373,11 @@
         .btn-email-env:hover { background-color: #b3392f; }
 
         @keyframes bounceRight {
-            0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(10px); }
-        }
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(10px); }
+        }
 
-    @media (max-width: 650px) {
+    @media (max-width: 650px) {
     
     /* 💥 AJUSTES GERAIS DE ESTRUTURA E MARGENS 💥 */
     
@@ -417,13 +413,9 @@
         align-items: center;
     }
     
-    /* Contêiner de Compra: Força Flexbox para alinhar Hotmart/Seta e Botão lado a lado */
+    /* Contêiner de Compra: Força modo Bloco para anular Flexbox de alta prioridade */
     .area-compra-flex {
-        display: flex !important; /* Força o Flexbox */
-        flex-direction: row; /* Alinhamento horizontal */
-        align-items: center; /* Alinha verticalmente no centro */
-        justify-content: center; /* Centraliza o grupo */
-        gap: 10px; /* Espaço entre os elementos */
+        display: block !important; 
         width: 100%; 
         max-width: 300px; 
         margin: 10px auto; /* Centraliza o bloco principal de compra */
@@ -431,33 +423,30 @@
 
     /* CORREÇÃO DA HOTMART E BOTÃO AZUL: FORÇA BLOCK, REDUÇÃO E CENTRALIZAÇÃO */
 
-    /* Bloco Hotmart/Seta: Alinha Hotmart e Seta lado a lado */
+    /* Bloco Hotmart/Seta */
     .lado-seguranca { 
-        display: flex !important; /* Usa flexbox para alinhar Hotmart e Seta */
-        flex-direction: row; /* Alinhamento horizontal */
-        align-items: center; /* Alinha verticalmente no centro */
-        justify-content: flex-end; /* Alinha a logo e a seta à direita do seu contêiner */
-        width: auto; /* Deixa a largura ser definida pelo conteúdo */
-        max-width: none; /* Remove limite de largura */
-        margin: 0; /* Remove margens desnecessárias */
+        display: block !important; /* FORÇA A QUEBRA DE LINHA */
+        width: 100%; 
+        max-width: 180px; /* Limite de largura reduzido */
+        margin: 0 auto 10px auto; /* Centraliza o bloco e adiciona margem */
     }
     
     /* Logo Hotmart (Tamanho e Centralização) */
     .hotmart-logo-img {
         height: 25px; 
         width: auto;
-        margin: 0 5px 0 0; /* Adiciona margem à direita para separar da seta */
+        margin: 0 auto; /* Centraliza a logo */
         display: block; 
     }
     
     /* Botão Azul */
     .botao-azul {
-        display: inline-block !important; /* Permite que fique lado a lado */
-        width: auto; /* Deixa a largura ser definida pelo conteúdo */
-        max-width: 180px !important; /* Limite de largura */
+        display: block !important; /* FORÇA O BOTÃO A QUEBRAR LINHA */
+        width: 100%;
+        max-width: 180px !important; /* FORÇA O LIMITE MÁXIMO DE LARGURA */
         font-size: 14px; /* Texto menor */
         padding: 8px 15px; /* Botão mais fino */
-        margin: 0; /* Remove margens desnecessárias */
+        margin: 0 auto; /* Centraliza o botão */
     }
     
     /* FIM DA CORREÇÃO DA HOTMART E BOTÃO AZUL */
@@ -469,16 +458,15 @@
     }
     
     .seta-animada {
-        transform: rotate(0deg); /* Volta para a rotação horizontal */
-        animation: bounceRight 1.5s infinite; /* Usa a animação original */
-        margin-right: 5px; /* Adiciona um pequeno espaço à direita da seta */
+        transform: rotate(90deg);
+        animation: bounceDown 1.5s infinite;
     }
     
     @keyframes bounceDown {
         0%, 100% { transform: rotate(90deg) translateX(0); }
         50% { transform: rotate(90deg) translateX(10px); }
     }
-}
+}}
 
     </style>
 </head>
@@ -505,7 +493,8 @@
             </div>
 
             <div class="texto-destaque">
-                <h2>Vale a pena investir em nossos pequeninos...</h2>
+               <h2 style="font-size: 25px;"><strong>Vale a pena investir...</strong></h2>
+               <h2 style="font-size: 25px;"><strong>Nos pequeninos!!!</strong></h2>
                 <ul>
                     <li>Alfabetização Reforçada</li>
                     <li>Letras maiúsculas e minúscula</li>
@@ -698,6 +687,3 @@
 
 </body>
 </html>
-
-
-
