@@ -413,13 +413,13 @@
         align-items: center;
     }
     
-    /* Contêiner de Compra: Mantém o Flexbox para alinhar Hotmart/Seta e Botão lado a lado */
+    /* Contêiner de Compra: Força Flexbox para alinhar Hotmart/Seta e Botão lado a lado */
     .area-compra-flex {
-        display: flex !important; /* Mantém o flexbox */
-        flex-direction: row; /* Garante alinhamento horizontal */
+        display: flex !important; /* Força o Flexbox */
+        flex-direction: row; /* Alinhamento horizontal */
         align-items: center; /* Alinha verticalmente no centro */
         justify-content: center; /* Centraliza o grupo */
-        gap: 10px; /* Reduz o espaço entre os elementos */
+        gap: 10px; /* Espaço entre os elementos */
         width: 100%; 
         max-width: 300px; 
         margin: 10px auto; /* Centraliza o bloco principal de compra */
@@ -432,7 +432,7 @@
         display: flex !important; /* Usa flexbox para alinhar Hotmart e Seta */
         flex-direction: row; /* Alinhamento horizontal */
         align-items: center; /* Alinha verticalmente no centro */
-        justify-content: center; /* Centraliza Hotmart e Seta */
+        justify-content: flex-end; /* Alinha a logo e a seta à direita do seu contêiner */
         width: auto; /* Deixa a largura ser definida pelo conteúdo */
         max-width: none; /* Remove limite de largura */
         margin: 0; /* Remove margens desnecessárias */
