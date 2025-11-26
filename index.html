@@ -154,17 +154,21 @@
         }
 
         /* --- ESTILOS DESTAQUES --- */
-        .conteudo-lado-a-lado {
-            display: flex;
-            justify-content: center;
-            align-items: stretch;
-            gap: 20px;
-            margin-bottom: 30px; 
-            flex-wrap: wrap;
-        }
-        .media-item {
-            border-radius: 8px;
-            border: 1px solid #ddd;
+	        @media (max-width: 799px) {
+	            .media-item, .texto-destaque {
+	                width: 100%;
+	                max-width: 380px;
+	            }
+	        }
+	       .conteudo-lado-a-lado {
+	            display: flex;
+	            justify-content: center;
+	            align-items: stretch;
+	            gap: 20px;
+	            margin-bottom: 30px; 
+	            flex-wrap: wrap;
+	        }
+	        .media-item {
             overflow: hidden;
             display: flex;
             align-items: center;
@@ -694,5 +698,6 @@
 
 </body>
 </html>
+
 
 
