@@ -23,9 +23,11 @@
             padding: 15px;
             margin: 20px auto;
             border-radius: 10px;
-            max-width: 700px;
+            max-width: 740px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.15);
             animation: pulse 2s infinite;
+			width: 730px;      /* 360 + 360 + 25px de espaço */
+			max-width: 100%;
         }
         .promo-banner h2 {
             color: #d32f2f; /* Vermelho forte */
@@ -77,20 +79,22 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             text-align: center;
         }
-        h1 {
-            margin-bottom: 35px;
-            color: #333;
-			display: inline-block; /* Para que a borda se ajuste ao texto */
-			border: 3px solid #BFE0FF; /* Borda azul clara */
-			padding: 45px; /* Espaçamento interno */
-			border-radius: 10px; /* Cantos arredondados (opcional) */
-			background-color: #BFE0FF; /* Cor azul do botão */
-			margin: 20px auto;
-            max-width: 700px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
-            animation: pulse 10s infinite;
-			
-        }
+       h1 {
+    margin-bottom: 35px;
+    color: #333;
+    display: block;
+    width: 100%; /* Permitir que ocupe toda a largura */
+    max-width: 740px; /* Limitar em telas grandes */
+    border: 3px solid #BFE0FF;
+    padding: 45px;
+    border-radius: 10px;
+    background-color: #BFE0FF;
+    margin: 20px auto; /* Mantém centralizado em qualquer largura */
+    font-size: 40px;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+    animation: pulse 10s infinite;
+}
 
         /* --- ESTILOS VÍDEO --- */
         .video-grid {
@@ -102,20 +106,26 @@
             margin-top: 30px; 
         }
 
-        .video-block {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 15px;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            background-color: #BFE0FF;
-        }
+       .video-block {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    background-color: #BFE0FF;
+    /* width: 360px; <--- REMOVA OU COMENTE ESTA LINHA */
+    /* height: 100px; <--- REMOVA OU COMENTE ESTA LINHA */
+    width: 100%; /* Ocupa a largura total disponível pelo pai */
+    max-width: 740px; /* Mesma largura máxima do banner amarelo */
+    margin: 01px auto; /* Centraliza e adiciona margem vertical, como o banner amarelo */
+    box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura */
+}
 
         .video-block h3 {
             color: #007bff;
             font-size: 1.1em;
             margin-top: 0;
-            margin-bottom: 15px;
+            margin-bottom: 5px;
         }
 
         .btn-youtube {
@@ -160,7 +170,7 @@
             align-items: center;
             justify-content: center;
 			background-color: #BFE0FF; /* Cor azul do botão */
-			width: 250px; /* Largura total desejada */
+			width: 360px; /* Largura total desejada */
 			padding: 1px; /* Padding para igualar ao .video-block */
 
         }
@@ -171,21 +181,20 @@
 			height: auto;
 			object-fit: contain;
 		}
-        .texto-destaque {
-            background-color: #BFE0FF;
-            color: #333;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #cceeff;
-            text-align: left;
-            width: 282px;
-            min-height: 356px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-			flex-basis: 250px; 
-			flex-grow: 1;
-        }
+			.texto-destaque {
+			background-color: #BFE0FF;
+			color: #333;
+			padding: 20px;
+			border-radius: 8px;
+			border: 1px solid #cceeff;
+			text-align: left;
+			width: 360px;   /* 👈 nova largura */
+			min-height: 356px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+
         .texto-destaque h2 {
             margin-top: 0;
             color: #007bff;
@@ -252,6 +261,7 @@
             border-radius: 10px; 
             box-shadow: 0 4px 0 0 #0056b3; 
             transition: background-color 0.1s, transform 0.1s, box-shadow 0.1s;
+			width: 340px; /* coloque o tamanho que quiser (300, 350, 400...) */
         }
         
         .botao-azul:hover {
@@ -363,36 +373,101 @@
         .btn-email-env:hover { background-color: #b3392f; }
 
         @keyframes bounceRight {
-            0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(10px); }
-        }
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(10px); }
+        }
 
-        @media (max-width: 650px) {
-            .conteudo-lado-a-lado {
-                flex-direction: column;
-                align-items: center;
-            }
-            .media-item img, .texto-destaque {
-                width: 100%;
-                max-width: 250px;
-            }
-            .area-compra-flex {
-                flex-direction: column;
-                gap: 10px;
-            }
-            .botao-azul {
-                width: 100%;
-                max-width: 300px; 
-            }
-            .seta-animada {
-                transform: rotate(90deg);
-                animation: bounceDown 1.5s infinite;
-            }
-            @keyframes bounceDown {
-                0%, 100% { transform: rotate(90deg) translateX(0); }
-                50% { transform: rotate(90deg) translateX(10px); }
-            }
-        }
+    @media (max-width: 650px) {
+    
+    /* 💥 AJUSTES GERAIS DE ESTRUTURA E MARGENS 💥 */
+    
+    /* Força a remoção de padding do corpo e contêiner principal para maximizar o espaço */
+    body {
+        padding: 0 !important;
+    }
+    
+    .container-principal {
+        padding: 0 !important; 
+        margin: 0 auto !important;
+    }
+    
+    /* CORREÇÃO H1 (Largura e Fonte) */
+    h1 {
+        max-width: calc(100% - 40px);
+        font-size: 1.5em; 
+        padding: 15px; 
+    }
+    
+    /* CORREÇÃO VÍDEOS (Empilhar e Centralizar) */
+	.video-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 0;
+    }
+    
+    /* GERAL (Empilhar Mídia/Vantagens) */
+    .conteudo-lado-a-lado {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    /* Contêiner de Compra: Força modo Bloco para anular Flexbox de alta prioridade */
+    .area-compra-flex {
+        display: block !important; 
+        width: 100%; 
+        max-width: 300px; 
+        margin: 10px auto; /* Centraliza o bloco principal de compra */
+    }
+
+    /* CORREÇÃO DA HOTMART E BOTÃO AZUL: FORÇA BLOCK, REDUÇÃO E CENTRALIZAÇÃO */
+
+    /* Bloco Hotmart/Seta */
+    .lado-seguranca { 
+        display: block !important; /* FORÇA A QUEBRA DE LINHA */
+        width: 100%; 
+        max-width: 180px; /* Limite de largura reduzido */
+        margin: 0 auto 10px auto; /* Centraliza o bloco e adiciona margem */
+    }
+    
+    /* Logo Hotmart (Tamanho e Centralização) */
+    .hotmart-logo-img {
+        height: 25px; 
+        width: auto;
+        margin: 0 auto; /* Centraliza a logo */
+        display: block; 
+    }
+    
+    /* Botão Azul */
+    .botao-azul {
+        display: block !important; /* FORÇA O BOTÃO A QUEBRAR LINHA */
+        width: 100%;
+        max-width: 180px !important; /* FORÇA O LIMITE MÁXIMO DE LARGURA */
+        font-size: 14px; /* Texto menor */
+        padding: 8px 15px; /* Botão mais fino */
+        margin: 0 auto; /* Centraliza o botão */
+    }
+    
+    /* FIM DA CORREÇÃO DA HOTMART E BOTÃO AZUL */
+
+    /* GERAL (Restante dos estilos) */
+    .media-item img, .texto-destaque {
+        width: 100%;
+        max-width: 250px;
+    }
+    
+    .seta-animada {
+        transform: rotate(90deg);
+        animation: bounceDown 1.5s infinite;
+    }
+    
+    @keyframes bounceDown {
+        0%, 100% { transform: rotate(90deg) translateX(0); }
+        50% { transform: rotate(90deg) translateX(10px); }
+    }
+}
+
     </style>
 </head>
 <body>
@@ -611,3 +686,4 @@
 
 </body>
 </html>
+
