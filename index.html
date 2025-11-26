@@ -11,7 +11,7 @@
     <meta property="og:description" content="Alfabetização reforçada, memorização imediata e coordenação motora. Conheça o método 100% lúdico.">
     <meta property="og:image" content="https://hotmart.s3.amazonaws.com/product_pictures/cf360d4f-7fae-4ba6-b5cb-260f65c18fc5/Tecladovirtualkids.png">
     
-    <style>
+        <style>
 	 * {
     box-sizing: border-box;
 }
@@ -23,11 +23,9 @@
             padding: 15px;
             margin: 20px auto;
             border-radius: 10px;
-            max-width: 740px;
+            max-width: 700px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.15);
             animation: pulse 2s infinite;
-			width: 730px;      /* 360 + 360 + 25px de espaço */
-			max-width: 100%;
         }
         .promo-banner h2 {
             color: #d32f2f; /* Vermelho forte */
@@ -79,22 +77,20 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             text-align: center;
         }
-       h1 {
-    margin-bottom: 35px;
-    color: #333;
-    display: block;
-    width: 100%; /* Permitir que ocupe toda a largura */
-    max-width: 740px; /* Limitar em telas grandes */
-    border: 3px solid #BFE0FF;
-    padding: 45px;
-    border-radius: 10px;
-    background-color: #BFE0FF;
-    margin: 20px auto; /* Mantém centralizado em qualquer largura */
-    font-size: 40px;
-    font-weight: bold;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
-    animation: pulse 10s infinite;
-}
+        h1 {
+            margin-bottom: 35px;
+            color: #333;
+			display: inline-block; /* Para que a borda se ajuste ao texto */
+			border: 3px solid #BFE0FF; /* Borda azul clara */
+			padding: 45px; /* Espaçamento interno */
+			border-radius: 10px; /* Cantos arredondados (opcional) */
+			background-color: #BFE0FF; /* Cor azul do botão */
+			margin: 20px auto;
+            max-width: 700px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+            animation: pulse 10s infinite;
+			
+        }
 
         /* --- ESTILOS VÍDEO --- */
         .video-grid {
@@ -106,26 +102,20 @@
             margin-top: 30px; 
         }
 
-       .video-block {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 10px;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    background-color: #BFE0FF;
-    /* width: 360px; <--- REMOVA OU COMENTE ESTA LINHA */
-    /* height: 100px; <--- REMOVA OU COMENTE ESTA LINHA */
-    width: 100%; /* Ocupa a largura total disponível pelo pai */
-    max-width: 740px; /* Mesma largura máxima do banner amarelo */
-    margin: 01px auto; /* Centraliza e adiciona margem vertical, como o banner amarelo */
-    box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura */
-}
+        .video-block {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            background-color: #BFE0FF;
+        }
 
         .video-block h3 {
             color: #007bff;
             font-size: 1.1em;
             margin-top: 0;
-            margin-bottom: 5px;
+            margin-bottom: 15px;
         }
 
         .btn-youtube {
@@ -170,7 +160,7 @@
             align-items: center;
             justify-content: center;
 			background-color: #BFE0FF; /* Cor azul do botão */
-			width: 360px; /* Largura total desejada */
+			width: 250px; /* Largura total desejada */
 			padding: 1px; /* Padding para igualar ao .video-block */
 
         }
@@ -181,20 +171,21 @@
 			height: auto;
 			object-fit: contain;
 		}
-			.texto-destaque {
-			background-color: #BFE0FF;
-			color: #333;
-			padding: 20px;
-			border-radius: 8px;
-			border: 1px solid #cceeff;
-			text-align: left;
-			width: 360px;   /* 👈 nova largura */
-			min-height: 356px;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-		}
-
+        .texto-destaque {
+            background-color: #BFE0FF;
+            color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #cceeff;
+            text-align: left;
+            width: 282px;
+            min-height: 356px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+			flex-basis: 250px; 
+			flex-grow: 1;
+        }
         .texto-destaque h2 {
             margin-top: 0;
             color: #007bff;
@@ -261,7 +252,6 @@
             border-radius: 10px; 
             box-shadow: 0 4px 0 0 #0056b3; 
             transition: background-color 0.1s, transform 0.1s, box-shadow 0.1s;
-			width: 340px; /* coloque o tamanho que quiser (300, 350, 400...) */
         }
         
         .botao-azul:hover {
@@ -373,11 +363,11 @@
         .btn-email-env:hover { background-color: #b3392f; }
 
         @keyframes bounceRight {
-            0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(10px); }
-        }
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(10px); }
+        }
 
-   @media (max-width: 650px) {
+        @media (max-width: 650px) {
             .conteudo-lado-a-lado {
                 flex-direction: column;
                 align-items: center;
@@ -403,7 +393,6 @@
                 50% { transform: rotate(90deg) translateX(10px); }
             }
         }
-
     </style>
 </head>
 <body>
@@ -622,6 +611,7 @@
 
 </body>
 </html>
+
 
 
 
